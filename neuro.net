@@ -3,8 +3,6 @@ if (getgenv().neuro) then
 end;
 getgenv().neuro = true;
 
-script_key = getgenv().script_key; 
-
 if (game.GameId == 3634139746) then
     loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/626fc7ead0096e200d611dfdabaaf108.lua"))()
 elseif (game.GameId == 73885730) then
