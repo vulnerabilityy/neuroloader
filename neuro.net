@@ -1,3 +1,7 @@
+if (getgenv().neuro) then 
+    return;
+end;
+getgenv().neuro = true;
 
 if (game.GameId == 3634139746) then
     loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/626fc7ead0096e200d611dfdabaaf108.lua"))()
