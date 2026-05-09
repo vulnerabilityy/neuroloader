@@ -3,7 +3,7 @@ if (getgenv().neuro) then
 end;
 
 if (game.GameId == 9825515356) then
-	loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/626fc7ead0096e200d611dfdabaaf108.lua"))();
+	loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/626fc7ead0096e200d611dfdabaaf108.lua"))()
 elseif (game.GameId == 155615604) then
-	loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/a17237386df1215087e13fb5d3529b94.lua"))();
+	loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/a17237386df1215087e13fb5d3529b94.lua"))()
 end;
