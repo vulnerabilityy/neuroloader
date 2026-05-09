@@ -1,12 +1,35 @@
+print("DEBUG: neuro.net loader started")
+
 if (getgenv().neuro) then 
+    print("DEBUG: neuro flag already set, returning")
     return;
 end;
 getgenv().neuro = true;
 
-script_key = getgenv().script_key; 
+print("DEBUG: GameId is: " .. tostring(game.GameId))
+
+if not getgenv().script_key or getgenv().script_key == "" then
+    warn("DEBUG ERROR: getgenv().script_key is missing or empty!")
+    getgenv().neuro = false
+    return
+end
+
+script_key = getgenv().script_key
+print("DEBUG: script_key defined from getgenv")
 
 if (game.GameId == 3634139746) then
-    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/626fc7ead0096e200d611dfdabaaf108.lua"))()
+    print("DEBUG: Match found (Da Hood), loading LuArmor...")
+    local code = game:HttpGet("https://api.luarmor.net/files/v4/loaders/626fc7ead0096e200d611dfdabaaf108.lua")
+    print("DEBUG: HttpGet Success, running loadstring...")
+    loadstring(code)()
 elseif (game.GameId == 73885730) then
-    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/a17237386df1215087e13fb5d3529b94.lua"))()
-end;
+    print("DEBUG: Match found (Prison Life), loading LuArmor...")
+    local code = game:HttpGet("https://api.luarmor.net/files/v4/loaders/a17237386df1215087e13fb5d3529b94.lua")
+    print("DEBUG: HttpGet Success, running loadstring...")
+    loadstring(code)()
+else
+    warn("DEBUG ERROR: GameId " .. tostring(game.GameId) .. " does not match supported games!")
+    getgenv().neuro = false
+end
+
+print("DEBUG: neuro.net logic finished")
